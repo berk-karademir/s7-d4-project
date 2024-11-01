@@ -69,11 +69,25 @@ describe('My First Test', () => {
 
 ... cy.get('[data-cy="submit"]').click()
 */
-
-describe("template spec", () => {
-  it("passes", () => {
+//  Test için erdem.guntay@wit.com.tr adresini 9fxIH0GXesEwH_I şifresini kullanabilirsin.
+describe("1-) Başarılı form doldurulduğunda submit edebiliyorum:", () => {
+  it("success sayfasını açabiliyorum.", () => {
     cy.visit("http://localhost:5173");
+    cy.get('[data-cy="email"]').type("erdem.guntay@wit.com.tr")
+    cy.get('[data-cy="password"]').type("9fxIH0GXesEwH_I")
+    cy.get('[data-cy="terms"]').click()
+    //  cy.contains("I agree").click();
+    cy.get('[data-cy="submit"]').click()
   });
-});
+})
+
+describe("2-) Hatalı durumlarda beklenen hata mesajları görünüyor ve buton disabled kalıyor.", () => {
+  it("email yanlış girdim:", () => {
+    cy.visit("http://localhost:5173");
+    cy.get('[data-cy="email"]').should('contain', 'asd')
+    cy.get('[data-cy="password"]').should('contain', 'asd')
+    // cy.get('h1').should('contain', 'jane.lane')
+  });
+})
 
   
