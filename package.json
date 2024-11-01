@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "test": "vitest",
     "backend": "node src/mocks/api.js",
-    "wit": "concurrently 'npm run dev' 'npm run test'"
+    "wit": "concurrently 'npm run dev' 'npm run test'",
+    "cypress": "npx cypress open",
+    "start": "concurrently \"npm run dev\" \"npm run cypress\""
   },
   "jest": {
     "verbose": true
